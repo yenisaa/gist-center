@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --paper: #faf8f5;
+  --card: #ffffff;
+  --ink: #1c1917;
+  --muted: #78716c;
+  --line: #e7e2db;
+  --accent: #c2410c;
+  --accent-soft: #fff1e8;
+  --danger: #b91c1c;
+  --radius: 10px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------- Site header ---------- */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--card);
+}
+.site-header-inner {
+  max-width: 720px;
+  margin-inline: auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.brand span { color: var(--accent); }
+.brand:hover { text-decoration: none; }
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+}
+.site-nav a { color: var(--muted); font-weight: 500; }
+.site-nav a:hover { color: var(--ink); text-decoration: none; }
+.site-nav .nav-cta {
+  color: #fff;
+  background: var(--accent);
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius);
+}
+.site-nav .nav-cta:hover { color: #fff; filter: brightness(0.92); }
+
+/* One readable column for every page section */
+.hero,
+.blog-container,
+.create-post,
+.unique,
+#update, #delete, #go-back,
+.post-actions {
+  max-width: 720px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* ---------- Buttons (used everywhere) ---------- */
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+.btn-publish {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn-publish:hover {
+  color: #fff;
+  filter: brightness(0.92);
+}
+
+/* ---------- Home: hero ---------- */
+.hero {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+.hero-header {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+}
+.hero-paragraph {
+  color: var(--muted);
+  margin: 0.75rem 0 1.75rem;
+}
+
+/* ---------- Home: post cards ---------- */
+.blog-container {
+  display: grid;
+  gap: 1.25rem;
+  padding-bottom: 2rem;
+}
+.articles {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.articles:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(28, 25, 23, 0.07);
+}
+.articles .title {
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+.articles .readTime {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.articles .readTime strong { color: var(--ink); font-weight: 500; }
+.articles .excerpt { margin: 0 0 1rem; }
+.articles .postId { margin: 0; font-weight: 500; }
+.articles .postId em { font-style: normal; }
+
+/* ---------- Create / Edit pages ---------- */
+.create-post { padding-top: 2.5rem; padding-bottom: 2rem; }
+
+.back-home { margin-bottom: 1.75rem; }
+.go-home {
+  display: inline-block;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.go-home:hover { color: var(--accent); text-decoration: none; }
+.back-home h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+
+.create-form { display: grid; gap: 1.1rem; }
+.create-form label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+.create-form input[type="text"],
+.create-form textarea {
+  width: 100%;
+  font: inherit;
+  padding: 0.75rem 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.create-form textarea { min-height: 280px; resize: vertical; }
+.create-form input:focus,
+.create-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+::placeholder { color: #a8a29e; }
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Post page ---------- */
+.unique { padding-top: 3rem; }
+.unique h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 0.75rem; }
+.unique .meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.unique .meta strong { color: var(--ink); font-weight: 500; }
+.content {
+  white-space: pre-line;   /* keeps your paragraph breaks */
+  font-size: 1.12rem;
+  line-height: 1.85;
+  margin-top: 1.5rem;
+}
+
+.post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 720px;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 1.25rem 0;
+  border-top: 1px solid var(--line);
+}
+.post-actions form { margin: 0; }
+
+.btn-delete {
+  color: var(--danger);
+  border-color: #f3c5c5;
+}
+.btn-delete:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+.post-actions section,
+.post-actions p { margin: 0; padding: 0; max-width: none; }
+
+#delete .btn-delete {
+  color: var(--danger);
+  border-color: #f3c5c5;
+}
+#delete .btn-delete:hover {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 4rem;
+  padding: 1.5rem 1.25rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}

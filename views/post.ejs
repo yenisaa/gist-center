@@ -1,0 +1,19 @@
+<%- include('partials/headers.ejs') %>
+
+<article class="unique">
+  <h1><%= specificBlog.title %></h1>
+  <p class="meta">
+    <strong>By:</strong> <%= specificBlog.author %> • <%= specificBlog.readTime %>
+  </p>
+  <p class="content"><%= specificBlog.content %></p>
+</article>
+
+<div class="post-actions">
+  <a href="/edit/<%= specificBlog.id %>" class="btn">Edit Post</a>
+
+  <%- include('delete.ejs') %>
+
+  <a href="/" class="btn">← Go Back</a>
+</div>
+
+<%- include('partials/footer.ejs') %>

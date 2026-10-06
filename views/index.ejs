@@ -1,0 +1,29 @@
+<%- include('partials/headers.ejs') %>
+
+    <section role="heading " class="hero">
+        <h1 class="hero-header">Welcome to gistCenter</h1>
+        <p class="hero-paragraph">Thoughts, ideas, and experiences</p>
+        <a href="/create">
+            <button class="btn">Create New Post</button>
+        </a>
+    </section>
+
+
+    <section class="blog-container">
+        <% blogPost.forEach((post) => { %>
+         <article class="articles" id="post-<%= post.id %>">
+            <h3 class="title"><%= post.title %></h3>
+            <p class="readTime"><strong>By:</strong> <em><%= post.author %> • Read time <%= post.readTime %></p>
+            <p class="excerpt"><%= post.excerpt %></p>
+            <p class="postId">
+                <em><a href="/post/<%=post.id%>">Read More...</a></em>
+            </p>
+            <p class="author"></em></p>
+
+         </article>
+        <% }) %>
+    </section>
+
+
+    <%- include('partials/footer.ejs') %>
+    
